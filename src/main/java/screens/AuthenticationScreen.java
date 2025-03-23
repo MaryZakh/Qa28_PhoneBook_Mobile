@@ -10,20 +10,25 @@ public class AuthenticationScreen extends BaseScreen {
     }
 
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/inputEmail']")
     AndroidElement emailEditText;
 
-    @FindBy(xpath = "")
+    @FindBy(id="com.sheygam.contactapp:id/inputPassword")
     AndroidElement passwordEditText;
 
-    @FindBy(xpath = "")
+    //@FindBy(xpath = "//*[text()='LOGIN']")
+    @FindBy(xpath = "//*[@text='LOGIN']")
     AndroidElement loginButton;
 
 
     public AuthenticationScreen fillEmail(String email) {
+        //pause(4000)
+        should(emailEditText,10);
         type(emailEditText, email);
         return this;
     }
+
+
 
     public AuthenticationScreen fillPassword(String password) {
         type(passwordEditText, password);
